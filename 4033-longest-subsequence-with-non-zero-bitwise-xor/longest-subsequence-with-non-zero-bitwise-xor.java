@@ -1,6 +1,5 @@
 class Solution {
     public int longestSubsequence(int[] nums) {
-        
         int xor = 0;
         int nonZero = 0;
         for(int num: nums){
