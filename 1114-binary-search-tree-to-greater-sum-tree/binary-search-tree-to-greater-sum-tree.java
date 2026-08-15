@@ -14,7 +14,7 @@
  * }
  */
 class Solution {
-    int sum;
+    int sum=0;
     void helper(TreeNode node){
         if(node == null) return;
         helper(node.right);
@@ -24,7 +24,6 @@ class Solution {
     }
     public TreeNode bstToGst(TreeNode root) {
         helper(root);
-
         return root;
     }
 }
