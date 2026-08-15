@@ -19,7 +19,6 @@ class Solution {
         if(node == null) return;
         helper(node.right);
         sum += node.val;
-        System.out.println(node.val + " " + sum);
         node.val = sum;
         helper(node.left);
     }
