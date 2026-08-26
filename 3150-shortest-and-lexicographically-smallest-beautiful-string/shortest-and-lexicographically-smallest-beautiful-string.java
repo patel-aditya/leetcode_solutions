@@ -1,6 +1,5 @@
 class Solution {
     public String shortestBeautifulSubstring(String s, int k) {
-        StringBuilder sb = new StringBuilder();
         int n = s.length();
         int i = 0;
         int j = 0;
@@ -9,7 +8,6 @@ class Solution {
         boolean isTrue = false;
         while (j < n) {
             char c = s.charAt(j);
-            sb.append(c);
             if (c == '1')
                 count++;
             while (i <= j && count >= k) {
@@ -21,7 +19,6 @@ class Solution {
             }
                 if (s.charAt(i) == '1')
                     count--;
-                sb.deleteCharAt(0);
                 i++;
             }
             j++;
@@ -30,6 +27,6 @@ class Solution {
         if (!isTrue)
             return "";
 
-        return res.toString();
+        return res;
     }
 }
