@@ -5,8 +5,7 @@ class Solution {
         int i = 0;
         int j = 0;
         int count = 0;
-        int minLen = 500;
-        StringBuilder res = new StringBuilder(s);
+        String res = s;
         boolean isTrue = false;
         while (j < n) {
             char c = s.charAt(j);
@@ -15,12 +14,11 @@ class Solution {
                 count++;
             while (i <= j && count >= k) {
                 isTrue = true;
-                if(sb.length() < res.length()) res = new StringBuilder(sb);
-                else if(sb.length() == res.length()){
-                int compare = sb.toString().compareTo(res.toString());
-                if(compare < 0) res = new StringBuilder(sb);
+                if((j - i + 1) < res.length()) res = s.substring(i,j+1);
+                else if((j - i + 1) == res.length()){
+                int compare = s.substring(i, j+1).compareTo(res);
+                if(compare < 0) res = s.substring(i, j+1);
             }
-                minLen = Math.min(minLen, sb.length());
                 if (s.charAt(i) == '1')
                     count--;
                 sb.deleteCharAt(0);
