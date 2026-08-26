@@ -12,10 +12,11 @@ class Solution {
                 count++;
             while (i <= j && count >= k) {
                 isTrue = true;
-                if((j - i + 1) < res.length()) res = s.substring(i,j+1);
+                String curr = s.substring(i, j+1);
+                if((j - i + 1) < res.length()) res = curr;
                 else if((j - i + 1) == res.length()){
-                int compare = s.substring(i, j+1).compareTo(res);
-                if(compare < 0) res = s.substring(i, j+1);
+                int compare = curr.compareTo(res);
+                if(compare < 0) res = curr;
             }
                 if (s.charAt(i) == '1')
                     count--;
