@@ -1,24 +1,55 @@
 class Solution {
+    int res = 0;
+    int n;
+
+    void check(int[][] img1, int[][] img2, int rowShift, int colShift) {
+
+        int max = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+
+                int r = i + rowShift;
+                int c = j + colShift;
+
+                if (r >= 0 && r < n && c >= 0 && c < n) {
+
+                    if (img1[i][j] == 1 && img2[r][c] == 1) {
+                        max++;
+                    }
+                }
+            }
+        }
+
+        res = Math.max(res, max);
+    }
+
+    void helper(int[][] img1, int[][] img2, int rowShift, int colShift) {
+
+        // All row shifts completed
+        if (rowShift > n - 1)
+            return;
+
+        // Current row's columns completed
+        if (colShift > n - 1) {
+            helper(img1, img2, rowShift + 1, -(n - 1));
+            return;
+        }
+
+        check(img1, img2, rowShift, colShift);
+
+        // Next column shift
+        helper(img1, img2, rowShift, colShift + 1);
+    }
+
     public int largestOverlap(int[][] img1, int[][] img2) {
-        int n = img1.length;
-        // collect every coordinate that holds a 1
-        List<int[]> A = new ArrayList<>();
-        List<int[]> B = new ArrayList<>();
-        for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (img1[i][j] == 1) A.add(new int[]{i, j});
-                if (img2[i][j] == 1) B.add(new int[]{i, j});
-            }
-        }
-        int[][] cnt = new int[2 * n][2 * n];
-        int best = 0;
-        for (int[] a : A) {
-            for (int[] b : B) {
-                int dx = b[0] - a[0] + n;
-                int dy = b[1] - a[1] + n;
-                best = Math.max(best, ++cnt[dx][dy]);
-            }
-        }
-        return best;
+
+        n = img1.length;
+        res = 0;
+
+        // Start from -(n-1), not 0
+        helper(img1, img2, -(n - 1), -(n - 1));
+
+        return res;
     }
 }
