@@ -19,9 +19,6 @@ class Solution {
             }
             i++;
         }
-
-
-        System.out.println(st);
         StringBuilder sb = new StringBuilder();
         while(!st.isEmpty()){
             sb.append(st.pop());
