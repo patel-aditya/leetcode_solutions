@@ -3,15 +3,14 @@ class Solution {
         int count = 0;
         int max = 0;
         int i = 0;
-        while(i < s.length()){
-            if(s.charAt(i) == '('){
+        for(char c: s.toCharArray()){
+            if(c == '('){
                 count++;
-            }else if(s.charAt(i) == ')') count--;
+            }else if(c == ')') count--;
 
             max = Math.max(count, max);
-
-            i++;
         }
-        return max;
+        
+return max;
     }
 }
