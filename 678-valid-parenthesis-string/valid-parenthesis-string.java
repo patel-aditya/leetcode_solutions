@@ -1,48 +1,35 @@
 class Solution {
     public boolean checkValidString(String s) {
-        int min = 0, max = 0;
-
+        int count = 0;
+        int str = 0;
         for(char c: s.toCharArray()){
-            if(c == '('){
-                min  = min + 1;
-                max = max + 1;
-            }else if(c == ')'){
-                min = min - 1;
-                max = max - 1;
+            if(c == '(') count++;
+            else if(c == '*'){
+                str++;
+
             }else{
-                min = min - 1;
-                max = max + 1;
+                if(count > 0) count--;
+                else if(str > 0) str--;
+                else return false;
             }
-
-            if(min < 0) min = 0;
-            if(max < 0) return false;
         }
 
-        return min == 0;
+        // if(str == count || count == 0) return true;
+
+        count = 0;
+        str = 0;
+        for(int i = s.length() - 1; i >= 0; i--){
+            char c = s.charAt(i);
+            if(c == ')') count++;
+            else if(c == '*'){
+                str++;
+
+            }else{
+                if(count > 0) count--;
+                else if(str > 0) str--;
+                else return false;
+            }
+        }
+        return true;
     }
 }
-
-/**
-// use DP memoniation learn from striver
-// show TLE brute approach exponentional
-class Solution {
-    public boolean checkValidString(String s) {
-        return helper(s, 0, 0);        
-    }
-
-    public boolean helper(String s,int i, int cnt){
-        if(cnt < 0) return false;
-        if(i == s.length()){
-            return cnt == 0;
-        }
-
-        if(s.charAt(i) == '('){
-            return helper(s, i+1, cnt+1);
-        }else if(s.charAt(i) == ')'){
-            return helper(s, i+1, cnt-1);
-        }
-
-        return helper(s, i + 1, cnt-1) || helper(s, i+1, cnt+1) || helper(s, i+1, cnt);
-    }
-}
- */
