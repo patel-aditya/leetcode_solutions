@@ -5,13 +5,11 @@ class Solution {
             if(sum <= 9){
                 sb.append(sum);
                 sum -= sum;
-                num--;
             }else{
                 sb.append(9);
                 sum -= 9;
-                num--;
             }
-
+            num--;
             if(num == 0 && sum != 0) return "";
         }
         return sb.toString();
