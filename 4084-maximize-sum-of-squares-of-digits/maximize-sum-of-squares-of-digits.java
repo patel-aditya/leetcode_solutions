@@ -1,7 +1,7 @@
 class Solution {
     public String maxSumOfSquares(int num, int sum) {
         StringBuilder sb = new StringBuilder();
-        while(num > 0 && sum >= 0){
+        while(num > 0){
             if(sum <= 9){
                 sb.append(sum);
                 sum -= sum;
@@ -14,7 +14,6 @@ class Solution {
 
             if(num == 0 && sum != 0) return "";
         }
-
         return sb.toString();
     }
 }
