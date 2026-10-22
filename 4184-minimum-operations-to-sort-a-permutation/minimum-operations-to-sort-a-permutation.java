@@ -29,8 +29,6 @@ class Solution {
             if (i == n)
                 i = 0;
         }
-
-        System.out.println(isSorted);
         if (isSorted) {
             return Math.min(minIdx, n - minIdx + 3-1);
         }
@@ -50,7 +48,6 @@ class Solution {
             if (i < 0)
                 i = n - 1;
         }
-        System.out.println(isSorted);
         if (isSorted) {
             int m = Math.min(minIdx + 1, n - minIdx -1);
             return m + 1;
