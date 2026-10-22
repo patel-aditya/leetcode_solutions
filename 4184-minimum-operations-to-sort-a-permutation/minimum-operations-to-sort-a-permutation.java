@@ -10,9 +10,6 @@ class Solution {
             }
         }
 
-
-        System.out.println(minIdx);
-
         boolean isSorted = true;
         int prev = min;
         int count = 0;
@@ -32,7 +29,6 @@ class Solution {
         if (isSorted) {
             return Math.min(minIdx, n - minIdx + 3-1);
         }
-
         i = minIdx;
         isSorted = true;
         count = 0;
