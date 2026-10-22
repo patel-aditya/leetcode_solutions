@@ -32,7 +32,6 @@ class Solution {
 
         System.out.println(isSorted);
         if (isSorted) {
-            if(nums[n-1] == min && n > 4) return 3;
             return Math.min(minIdx, n - minIdx + 3-1);
         }
 
