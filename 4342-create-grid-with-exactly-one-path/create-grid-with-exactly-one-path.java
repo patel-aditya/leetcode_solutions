@@ -1,10 +1,8 @@
 class Solution {
-
     void dfs(char[][] res, int i, int j, int m, int n){
         if(i >= m || j >= n) return;
-
+        if(res[m-1][n-1] == '.') return;
         res[i][j] = '.';
-
         if(i == m -1 && j == n-1) return;
         dfs(res, i, j+1, m, n);
         if(res[m-1][n-1] == '.') return;
