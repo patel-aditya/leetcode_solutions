@@ -3,12 +3,9 @@ class Solution {
         if(i >= m || j >= n) return;
         if(res[m-1][n-1] == '.') return;
         res[i][j] = '.';
-        if(i == m -1 && j == n-1) return;
         dfs(res, i, j+1, m, n);
         if(res[m-1][n-1] == '.') return;
         dfs(res, i+1, j, m, n);
-        if(res[m-1][n-1] == '.') return;
-
     }
     public String[] createGrid(int m, int n) {
         char[][] res = new char[m][n];
