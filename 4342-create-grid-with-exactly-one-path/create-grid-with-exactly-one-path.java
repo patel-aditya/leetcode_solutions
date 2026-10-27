@@ -17,10 +17,7 @@ class Solution {
         for(int i = 0; i< m; i++){
             Arrays.fill(res[i], '#');
         }
-
         dfs(res, 0, 0, m, n);
-
-
         String[] ans = new String[m];
         for(int i = 0; i< m; i++){
             String str = "";
@@ -29,8 +26,6 @@ class Solution {
             }
             ans[i] = str;
         }
-
-        System.out.println(Arrays.deepToString(res));
         return ans;        
     }
 }
