@@ -20,11 +20,12 @@ class Solution {
         dfs(res, 0, 0, m, n);
         String[] ans = new String[m];
         for(int i = 0; i< m; i++){
-            StringBuilder sb = new StringBuilder();
-            for(int j = 0; j < n; j++){
-                sb.append(res[i][j]);
-            }
-            ans[i] = sb.toString();
+            // StringBuilder sb = new StringBuilder();
+            // for(int j = 0; j < n; j++){
+            //     sb.append(res[i][j]);
+            // }
+            // ans[i] = sb.toString();
+            ans[i] = String.valueOf(res[i]);
         }
         return ans;        
     }
